@@ -93,7 +93,7 @@ type User {
 `;
 ```
 
-Try to come up with the `Category`, `Product`, and `Order` type definitions without looking below first.
+**Try to come up with the `Category`, `Product`, and `Order` type definitions without looking below first. If you get stuck, please ask a question.**
 
 ```graphql
 type Product {
@@ -150,7 +150,9 @@ const resolvers = {
 
 The first argument to a resolver is the parentValue, but since a query is the first node in the graph we are building, we don't need this value so we just define it as `_`. The second argument to a resolver is the arguments of the query. The `categories` query also doesn't take any arguments so we indicate that we don't need it with double underscores, `__`.
 
-Now, let's define resolvers for our Object Types. We only need to define Object Type resolvers for fields that the Query or Mutation don't return or don't return in the right format. Try to come up with the resolvers for each of the Object Types. If you get stuck, please ask a question.
+Now, let's define resolvers for our Object Types. We only need to define Object Type resolvers for fields that the Query or Mutation don't return or don't return in the right format. 
+
+**Try to come up with the resolvers for each of the Object Types. If you get stuck, please ask a question.**
 
 You should end up with resolvers looking like this:
 
@@ -237,6 +239,10 @@ On your own, try making the following queries with proper arguments:
 - order
 
 Make sure to add the appropriate type definitions and appropriate resolvers for each. Reference the [Formulating Queries and Mutations] reading if you need help.
+
+## Mutations
+
+
 
 ---------------- IN PROGRESS ------------------------
 
