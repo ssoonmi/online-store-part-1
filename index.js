@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('./models');
-const graphQLHTTP = require('express-graphql');
+const graphqlHTTP = require('express-graphql');
 const expressPlayground = require('graphql-playground-middleware-express').default;
 const db = require('./config/keys').mongoURI
 
@@ -14,8 +14,9 @@ const app = express();
 
 app.use(
   '/graphql',
-  graphQLHTTP({
-    // options
+  graphqlHTTP({
+    schema: schema,
+    rootValue: resolvers
   })
 );
 

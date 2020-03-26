@@ -19,21 +19,21 @@ Let's also install the following development packages using `npm install -D`:
 
 ### Connecting GraphQL to Express
 
-Let's import `graphQLHTTP` from `express-graphql` and `expressPlayground` from `graphql-playground-middleware-express` at the top of our server entry file, `index.js`.
+Let's import `graphqlHTTP` from `express-graphql` and `expressPlayground` from `graphql-playground-middleware-express` at the top of our server entry file, `index.js`.
 
 ```javascript
 // top of index.js
-const graphQLHTTP = require('express-graphql');
+const graphqlHTTP = require('express-graphql');
 const expressPlayground = require('graphql-playground-middleware-express').default;
 ```
 
-After you define `app`, we are going to connect the `graphQLHTTP` middleware to the `/graphql` route and connect the `expressPlayground` middleware to the `/playground` route with the `endpoint` option set to `/graphql`.
+After you define `app`, we are going to connect the `graphqlHTTP` middleware to the `/graphql` route and connect the `expressPlayground` middleware to the `/playground` route with the `endpoint` option set to `/graphql`.
 
 ```javascript
 // index.js, after you define app
 app.use(
   '/graphql',
-  graphQLHTTP({
+  graphqlHTTP({
     // options
   })
 );
@@ -43,7 +43,7 @@ app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
 
 `/graphql` is the route at which we can make GraphQL queries and mutations. `/playground` is the route at which we can access our GraphQL IDE and test out the queries and mutations.
 
-`graphQLHTTP` has its own build-in GraphQL IDE called `GraphiQL` that you can turn on, but it's just not as good as GraphQL Playground. For more information on the built-in IDE, check out [How to Set Up GraphiQL].
+`graphqlHTTP` has its own build-in GraphQL IDE called `GraphiQL` that you can turn on, but it's just not as good as GraphQL Playground. For more information on the built-in IDE, check out [How to Set Up GraphiQL].
 
 If you head to [localhost:5000/playground](localhost:5000/playground), you'll see an error message pop up on the right window. 
 If you head to [localhost:5000/graphql](localhost:5000/graphql), you'll see a more detailed error saying that GraphQL needs a schema.
@@ -161,7 +161,7 @@ const resolvers = {
   // ... Query resolvers
   User: {
     orders(parentValue, _) {
-
+      return Orders.find({ user: parentValue._id });
     }
   },
   Category: {
@@ -214,7 +214,7 @@ module.exports = {
 }
 ```
 
-In our server entry file, let's import the `schema` and `resolvers` and include them in our `graphqlHTTP` middleware as options.
+In our server entry file, let's import the `schema` and `resolvers` (make sure to do this sometime after you import the Mongoose models into the entry file) and include them in our `graphqlHTTP` middleware as options.
 
 ```javascript
 app.use(
