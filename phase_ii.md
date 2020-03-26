@@ -254,7 +254,7 @@ In our `typeDefs` template literal in our `schema/index.js` file, we are going t
 
 ```graphql
 type Mutation {
-  signup(email: String, password): User
+  signup(email: String, password: String): User
 }
 ```
 
