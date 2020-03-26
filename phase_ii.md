@@ -236,10 +236,11 @@ On your own, try making the following queries with proper arguments:
 - orders
 - order
 
-Make sure to add the appropriate type definitions and appropriate resolvers for each.
+Make sure to add the appropriate type definitions and appropriate resolvers for each. Reference the [Formulating Queries and Mutations] reading if you need help.
 
 ---------------- IN PROGRESS ------------------------
 
 [How to Set Up GraphiQL]: https://graphql.org/graphql-js/running-an-express-graphql-server/
 [seed file]: /seeds.js
 [template literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+[Formulating Queries and Mutations]: https://github.com/ssoonmi/mern-graphql-curriculum/blob/master/formulating_queries_and_mutations.md
