@@ -240,11 +240,74 @@ On your own, try making the following queries with proper arguments:
 
 Make sure to add the appropriate type definitions and appropriate resolvers for each. Reference the [Formulating Queries and Mutations] reading if you need help.
 
+Make sure to test it out in Playground and try using `Query Variables`!
+
 ## Mutations
 
+Let's try creating a mutation for signing up a user. Authenticating users are not going to be covered today, so we will store a user's email and password directly into the database for now.
 
+Just like how we define the `Query` type, we are going to define a `Mutation` type with a field called `signup` that returns a `User` type.
 
----------------- IN PROGRESS ------------------------
+In our `typeDefs` template literal in our `schema/index.js` file, we are going to add the `signup` mutation.
+
+**Try doing this yourself using the `User` schema as a reference before looking below**
+
+```graphql
+type Mutation {
+  signup(email: String, password): User
+}
+```
+
+If your `Mutation` type looks like this, then great job!
+
+Now we need to make the resolver for this `mutation` field.
+
+Let's create a key in our `resolvers` called `Mutation` whose value will be an object with the `signup` key's value as a resolver function. We will be saving the email and password directly into the `users` collection and returning a `User`.
+
+**Try this on your own before looking below.**
+
+Your `resolvers` object should now look like:
+
+```javascript
+const resolvers = {
+  // ... Query resolvers
+  // ... Object Type resolvers
+  Mutation: {
+    signup(_, { email, password }) {
+      const newUser = new User({ email, password });
+      return newUser.save();
+    }
+  }
+}
+```
+
+Just like a resolver function on the `Query` type, our `Mutation` type resolvers don't care about the first argument to the resolver, the `parentValue`. The `signup` mutation takes in `email` and `password` as inputs so we can extract them from the second argument to the resolver, the `arguments`. 
+
+Woot! We created our first mutation!
+
+## More Mutations
+
+Let's get funky and try creating our own mutations for the following:
+
+- createProduct
+- createCategory
+- deleteProduct
+- deleteCategory
+- updateProductCategory
+
+Make sure to add the appropriate arguments, type definitions, resolver functions for each. Reference the [Formulating Queries and Mutations] reading if you need help.
+
+Make sure to test it out in Playground and try using `Query Variables`!
+
+## Conclusion
+
+Hopefully, now you are more aquainted with how to make queries and mutations in our server. 
+
+We learned how to make a GraphQL schema using type definitions and resolvers.
+
+We also learned how to connect our GraphQL schema to Express and test out our queries and mutations.
+
+If you want to challenge yourselves and come up with more queries and mutations to implement, go ahead!
 
 [How to Set Up GraphiQL]: https://graphql.org/graphql-js/running-an-express-graphql-server/
 [seed file]: /seeds.js
