@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('./models');
+const { schema, resolvers } = require('./schema');
 const graphqlHTTP = require('express-graphql');
 const expressPlayground = require('graphql-playground-middleware-express').default;
 const db = require('./config/keys').mongoURI

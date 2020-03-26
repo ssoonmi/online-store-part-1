@@ -26,7 +26,7 @@ type Category {
 type Order {
   _id: ID!
   user: User
-  products [Product]
+  products: [Product]
 }
 type Query {
   categories: [Category]
