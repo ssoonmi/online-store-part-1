@@ -1,6 +1,4 @@
-# Online Store Part 1
-
-Today, we will be walking through how to set up a simple online store server with products, categories, and users. 
+# Phase I
 
 ## Express and MongoDB Setup
 

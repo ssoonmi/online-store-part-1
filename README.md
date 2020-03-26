@@ -2,13 +2,13 @@
 
 Today, we will be walking through how to set up a simple online store server with products, categories, and users. 
 
-## Phase 1 Reading
+## Phase I Reading
 
-Link to [Phase 1]
+Link to [Phase I]
 
-## Phase 2 Reading
+## Phase II Reading
 
-Link to [Phase 2]
+Link to [Phase II]
 
-[Phase 1]: /phase_i.md
-[Phase 2]: /phase_ii.md
+[Phase I]: /phase_i.md
+[Phase II]: /phase_ii.md
