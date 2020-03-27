@@ -161,7 +161,7 @@ const resolvers = {
   // ... Query resolvers
   User: {
     orders(parentValue, _) {
-      return Orders.find({ user: parentValue._id });
+      return Order.find({ user: parentValue._id });
     }
   },
   Category: {
@@ -177,12 +177,12 @@ const resolvers = {
   },
   Order: {
     user: async (parentValue, _) => {
-      const product = await parentValue.populate('user').execPopulate();
-      return product.user;
+      const order = await parentValue.populate('user').execPopulate();
+      return order.user;
     },
     products: async (parentValue, _) => {
-      const product = await parentValue.populate('products').execPopulate();
-      return product.products;
+      const order = await parentValue.populate('products').execPopulate();
+      return order.products;
     }
   }
 };
